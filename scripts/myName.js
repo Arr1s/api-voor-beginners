@@ -3,8 +3,34 @@
 // 1 persoon: https://fdnd.directus.app/items/person/67
 // iedereen: https://fdnd.directus.app/items/person/?fields=id,name,github_handle,avatar&filter={%22squads%22:{%22squad_id%22:{%22name%22:%22Minor%20Web%20Dev%22}}}&sort=name
 
+// De app/website waar ik data vandaan wil halen
 const baseURL = 'https://fdnd.directus.app/';
-const endpointMe = 'items/person/67';
+
+// De data die ik wil hebben van de website
+const endpointMe = 'items/person/209';
+
+// Samenvoeging om de URL te krijgen
+const urlMe = baseURL + endpointMe;
+
+// console.log(urlMe);
+
+// Haal de data op uit de URL, wanneer je klaar bent pak data van persoon 209
+getData(urlMe).then( data209 => {
+	// console.log(data209.data.name);
+	// console.log(data209.data.birthdate);
+
+	// Haal de naam uit de data set van persoon 209
+	let myName = data209.data.name;
+	let birthDay = data209.data.birthdate;
+
+	// Selecteer de h1 met de naam "h1" en vergang de tekst met "myName"
+	let h1 = document.querySelector('h1');
+	h1.textContent = myName;
+
+	// Selecteer de p met de naam "verjaardag" en vergang de tekst met "birthDay"
+	let verjaardag = document.querySelector('p');
+	verjaardag.textContent = birthDay;
+});
 
 
 

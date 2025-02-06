@@ -1,4 +1,16 @@
+getData(urlMe).then( data => {
+    let myImage = data.data.avatar;
+    // console.log(myImage);
+    let myName = data.data.name;
 
+    let myImg = document.createElement("img");
+    myImg.src = myImage;
+    myImg.alt = myName;
+    // console.log(myImg);
+    
+    let mySection = document.querySelector('section:nth-of-type(1)');
+    mySection.appendChild(myImg);
+});
 
 
 
